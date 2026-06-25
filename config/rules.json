@@ -1,0 +1,124 @@
+{
+  "allowlist": [
+    "10.0.0.10",
+    "192.168.1.100"
+  ],
+  "denylist": [
+    "203.0.113.66"
+  ],
+  "thresholds": {
+    "request_window_seconds": 60,
+    "request_count": 12,
+    "auth_window_seconds": 120,
+    "auth_failures": 5,
+    "scan_window_seconds": 30,
+    "distinct_ports": 6
+  },
+  "correlation_gap_minutes": 10,
+  "signatures": [
+    {
+      "id": "web.sqli",
+      "name": "SQL_INJECTION",
+      "severity": "HIGH",
+      "score": 78,
+      "tactic": "Initial Access",
+      "technique": "Exploit Public-Facing Application",
+      "confidence": 0.9,
+      "description": "SQL injection keyword or boolean payload matched after URL decoding",
+      "patterns": [
+        "union select",
+        "or 1=1",
+        "sleep(",
+        "information_schema",
+        "'--",
+        "drop table"
+      ]
+    },
+    {
+      "id": "web.xss",
+      "name": "XSS",
+      "severity": "HIGH",
+      "score": 72,
+      "tactic": "Initial Access",
+      "technique": "Exploit Public-Facing Application",
+      "confidence": 0.85,
+      "description": "Script injection or HTML event handler pattern matched",
+      "patterns": [
+        "<script",
+        "javascript:",
+        "onerror=",
+        "onload="
+      ]
+    },
+    {
+      "id": "web.traversal",
+      "name": "PATH_TRAVERSAL",
+      "severity": "HIGH",
+      "score": 76,
+      "tactic": "Discovery",
+      "technique": "File and Directory Discovery",
+      "confidence": 0.88,
+      "description": "Path traversal or sensitive file access pattern matched",
+      "patterns": [
+        "../",
+        "..%2f",
+        "/etc/passwd",
+        "boot.ini",
+        "win.ini"
+      ]
+    },
+    {
+      "id": "web.cmdi",
+      "name": "COMMAND_INJECTION",
+      "severity": "CRITICAL",
+      "score": 95,
+      "tactic": "Execution",
+      "technique": "Command and Scripting Interpreter",
+      "confidence": 0.92,
+      "description": "Command injection metacharacter and dangerous command pattern matched",
+      "patterns": [
+        ";cat ",
+        "|id",
+        "&&whoami",
+        "`id`",
+        "wget http",
+        "curl http"
+      ]
+    },
+    {
+      "id": "web.scanner",
+      "name": "WEB_SCANNER",
+      "severity": "MEDIUM",
+      "score": 42,
+      "tactic": "Reconnaissance",
+      "technique": "Active Scanning",
+      "confidence": 0.75,
+      "description": "Common scanner or exploit probing path matched",
+      "patterns": [
+        "nikto",
+        "sqlmap",
+        "acunetix",
+        "/.env",
+        "/wp-admin",
+        "/phpmyadmin"
+      ]
+    },
+    {
+      "id": "web.webshell",
+      "name": "WEBSHELL_UPLOAD",
+      "severity": "CRITICAL",
+      "score": 96,
+      "tactic": "Persistence",
+      "technique": "Server Software Component",
+      "confidence": 0.9,
+      "description": "Suspicious script upload or web shell marker matched",
+      "patterns": [
+        "cmd=whoami",
+        "upload.php",
+        ".jsp?cmd=",
+        "eval(",
+        "base64_decode"
+      ]
+    }
+  ]
+}

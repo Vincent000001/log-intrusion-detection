@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project runtime outputs (directories created by scripts at runtime)
+report/runtime/*
+!report/runtime/.gitkeep
+assets/fig_*.png
+
+# Course submission files (not part of the OSS release)
+*.docx
+*.pdf
+
+# Jupyter
+.ipynb_checkpoints/

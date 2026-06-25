@@ -1,0 +1,142 @@
+{
+  "seed": 20260623,
+  "total_lines": 3403,
+  "parsed_total": 3403,
+  "valid": 3399,
+  "invalid": 4,
+  "duplicates": 5,
+  "by_format": {
+    "iso_access": 2075,
+    "json": 668,
+    "common_access": 634,
+    "key_value": 22
+  },
+  "fp_trap_lines": [
+    2756,
+    2757,
+    2758,
+    2759,
+    2760,
+    2761,
+    2762,
+    2763,
+    2764,
+    2765,
+    2766,
+    2767,
+    2768,
+    2769,
+    2770,
+    2771,
+    2772,
+    2773,
+    2774,
+    2775,
+    2776,
+    2777,
+    2778
+  ],
+  "attack_ips": {
+    "REQUEST_BURST": [
+      "88.214.56.70",
+      "88.214.56.71"
+    ],
+    "BRUTE_FORCE": [
+      "45.32.99.10",
+      "45.32.99.11"
+    ],
+    "PORT_SCAN": [
+      "66.249.5.20",
+      "66.249.5.21"
+    ]
+  },
+  "fn_attack_lines": {
+    "2740": [
+      "BRUTE_FORCE"
+    ],
+    "2747": [
+      "PORT_SCAN"
+    ],
+    "2748": [
+      "COMMAND_INJECTION"
+    ],
+    "2749": [
+      "COMMAND_INJECTION"
+    ],
+    "2750": [
+      "COMMAND_INJECTION"
+    ],
+    "2751": [
+      "COMMAND_INJECTION"
+    ],
+    "2752": [
+      "COMMAND_INJECTION"
+    ],
+    "2753": [
+      "SQL_INJECTION"
+    ],
+    "2754": [
+      "SQL_INJECTION"
+    ],
+    "2755": [
+      "SQL_INJECTION"
+    ]
+  },
+  "findings": 159,
+  "scenarios": [
+    {
+      "name": "SQL 注入",
+      "type": "SQL_INJECTION"
+    },
+    {
+      "name": "快速暴力破解 45.32.99.10",
+      "type": "BRUTE_FORCE",
+      "trigger": 1686
+    },
+    {
+      "name": "快速暴力破解 45.32.99.11",
+      "type": "BRUTE_FORCE",
+      "trigger": 1693
+    },
+    {
+      "name": "请求突增 88.214.56.70",
+      "type": "REQUEST_BURST",
+      "trigger": 1707
+    },
+    {
+      "name": "请求突增 88.214.56.71",
+      "type": "REQUEST_BURST",
+      "trigger": 1723
+    },
+    {
+      "name": "端口扫描 66.249.5.20",
+      "type": "PORT_SCAN",
+      "trigger": 1733
+    },
+    {
+      "name": "端口扫描 66.249.5.21",
+      "type": "PORT_SCAN",
+      "trigger": 1740
+    },
+    {
+      "name": "多阶段攻击 80.82.77.5",
+      "type": "KILL_CHAIN"
+    },
+    {
+      "name": "多阶段攻击 80.82.77.6",
+      "type": "KILL_CHAIN"
+    },
+    {
+      "name": "慢速暴力破解 190.2.144.9",
+      "type": "BRUTE_FORCE(FN)"
+    },
+    {
+      "name": "低速端口扫描 190.2.144.10",
+      "type": "PORT_SCAN(FN)"
+    },
+    {
+      "name": "良性高频访问 100.64.3.200",
+      "type": "REQUEST_BURST(FP)"
+    }
+  ]
+}
